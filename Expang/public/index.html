@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src = "/js/controller.js"></script>
+<body class = "container" ng-app="ngListApp">
+	<h1>Contact List Details</h1>
+<div ng-controller = "ngListController">
+
+<!--
+	<button name = "mybutton" ng-click = "GetcontactList()">GetAllContact </button>
+-->
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>Sr no</th>
+				<th>Color</th>
+				<th>Categiry</th>
+				<th>Opration </th>
+			</tr>
+			<form  name = "myForm">
+			<tr>
+				<th>#</th>
+				<th><input type=" text" ng-model = "color"></th>
+				<th><input type=" text"  ng-model = "category"></th>
+				<th><input type=" text"  ng-model = "type"></th>
+				<th><input type="button"  value = "Insert" ng-click = "AddNewContact(myForm)"></th>
+				
+			</tr>
+		</form>
+
+			
+		</thead>	
+		<tbody>
+
+			<tr ng-repeat = "obj in MysetVar " >
+				<td>{{$index}}</td>
+				<td>{{obj.color}}</td>
+				<td>{{obj.category}}</td>
+				<td>{{obj.type}}</td>
+				<td>
+						<button type="button" ng-click = "UpdateContact($index)">Update</button> ||
+						<button type="button" ng-click = "DeleteContact($index)">Delete</button> 
+				</td>		
+			</tr>	
+			
+		</tbody>
+	</table>
+
+</div>
+
+
+</body>
+</html> 
